@@ -1,26 +1,253 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Выбор даты и времени</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!--
-      ЗАДАНИЕ
-      ========
-      Сверстать страницу выбора даты и времени по своему макету.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NORTH — Выбор даты и времени</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
 
-      Пока это только вёрстка. Никакого JavaScript — ни кликов,
-      ни переходов, ни выбора дня. Всё статично.
+    <!-- Шапка -->
+    <header class="header">
+      <div class="header-top">
+        <a class="logo" href="#">NORTH</a>
 
-      Стили пишите в styles.css. Разметку — здесь.
-    -->
+        <nav class="navigation" aria-label="Навигация">
+          <a class="nav-link" href="#">Услуги</a>
+          <a class="nav-link" href="#">Мастера</a>
+          <a class="nav-link" href="#">Отзывы</a>
+          <a class="nav-link" href="#">О нас</a>
+          <a class="nav-link" href="#">Контакты</a>
+        </nav>
+      </div>
 
-    <div class="page">
-      <!-- Начните отсюда. Разметьте шапку, основную область
-           с календарём и слотами, подвал. -->
-    </div>
-  </body>
+      <!-- Этапы записи -->
+      <nav class="steps" aria-label="Этапы записи">
+        <div class="step step-done">
+          <span class="step-number">✓</span>
+          <span class="step-label">Мастер</span>
+        </div>
+        <span class="step-line"></span>
+
+        <div class="step step-done">
+          <span class="step-number">✓</span>
+          <span class="step-label">Услуги</span>
+        </div>
+        <span class="step-line"></span>
+
+        <div class="step step-current" aria-current="step">
+          <span class="step-number">3</span>
+          <span class="step-label">Дата и время</span>
+        </div>
+        <span class="step-line"></span>
+
+        <div class="step">
+          <span class="step-number">4</span>
+          <span class="step-label">Контакты</span>
+        </div>
+        <span class="step-line"></span>
+
+        <div class="step">
+          <span class="step-number">5</span>
+          <span class="step-label">Подтверждение</span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <div class="container">
+
+        <!-- Заголовок -->
+        <section class="page-heading">
+          <a class="back-link" href="#">← Назад</a>
+
+          <div class="heading-content">
+            <h1 class="page-title">Выберите дату и время</h1>
+            <p class="page-description">
+              Показываем время, доступное для вашего визита к Дмитрию.
+            </p>
+          </div>
+
+          <span class="step-indicator">Шаг 3 из 5</span>
+        </section>
+
+        <!-- Календарь и время -->
+        <section class="booking-section" aria-label="Выбор даты и времени">
+
+          <!-- Календарь -->
+          <div class="calendar-card">
+            <div class="calendar-header">
+              <h2 class="calendar-title">Октябрь 2026</h2>
+
+              <div class="calendar-controls">
+                <button class="calendar-arrow" type="button"
+                        aria-label="Предыдущий месяц">‹</button>
+                <button class="calendar-arrow" type="button"
+                        aria-label="Следующий месяц">›</button>
+              </div>
+            </div>
+
+            <div class="calendar-weekdays">
+              <span class="weekday">Пн</span>
+              <span class="weekday">Вт</span>
+              <span class="weekday">Ср</span>
+              <span class="weekday">Чт</span>
+              <span class="weekday">Пт</span>
+              <span class="weekday">Сб</span>
+              <span class="weekday">Вс</span>
+            </div>
+
+            <div class="calendar-days">
+              <span class="calendar-day day-muted">28</span>
+              <span class="calendar-day day-muted">29</span>
+              <span class="calendar-day day-muted">30</span>
+              <span class="calendar-day day-muted">1</span>
+              <span class="calendar-day day-muted">2</span>
+
+              <button class="calendar-day" type="button">3</button>
+              <button class="calendar-day" type="button">4</button>
+              <button class="calendar-day" type="button">5</button>
+              <button class="calendar-day" type="button">6</button>
+              <button class="calendar-day" type="button">7</button>
+              <button class="calendar-day" type="button">8</button>
+              <button class="calendar-day day-selected" type="button"
+                      aria-pressed="true">9</button>
+              <button class="calendar-day" type="button">10</button>
+              <button class="calendar-day" type="button">11</button>
+
+              <span class="calendar-day day-muted">12</span>
+              <button class="calendar-day" type="button">13</button>
+              <button class="calendar-day" type="button">14</button>
+              <button class="calendar-day" type="button">15</button>
+              <button class="calendar-day" type="button">16</button>
+              <button class="calendar-day" type="button">17</button>
+              <button class="calendar-day" type="button">18</button>
+              <span class="calendar-day day-muted">19</span>
+              <button class="calendar-day" type="button">20</button>
+              <button class="calendar-day" type="button">21</button>
+              <button class="calendar-day" type="button">22</button>
+              <button class="calendar-day" type="button">23</button>
+              <button class="calendar-day" type="button">24</button>
+              <button class="calendar-day" type="button">25</button>
+              <span class="calendar-day day-muted">26</span>
+              <button class="calendar-day" type="button">27</button>
+              <button class="calendar-day" type="button">28</button>
+              <button class="calendar-day" type="button">29</button>
+              <button class="calendar-day" type="button">30</button>
+              <button class="calendar-day" type="button">31</button>
+              <span class="calendar-day day-muted">1</span>
+            </div>
+
+            <div class="calendar-legend">
+              <span class="legend-dot"></span>
+              <span class="legend-label">Доступно</span>
+              <span class="legend-label">Бледные даты — нет записи</span>
+            </div>
+          </div>
+
+          <!-- Время -->
+          <div class="time-card">
+            <div class="time-header">
+              <h2 class="time-title">Пятница, 9 октября</h2>
+              <p class="time-description">
+                Начало визита · длительность 90 мин
+              </p>
+            </div>
+
+            <div class="time-slots">
+              <button class="time-slot" type="button">09:00</button>
+
+              <button class="time-slot slot-busy" type="button" disabled>
+                10:30
+                <span class="slot-status">Занято</span>
+              </button>
+
+              <button class="time-slot" type="button">12:00</button>
+
+              <button class="time-slot slot-busy" type="button" disabled>
+                13:30
+                <span class="slot-status">Занято</span>
+              </button>
+
+              <button class="time-slot slot-selected" type="button"
+                      aria-pressed="true">15:00</button>
+              <button class="time-slot" type="button">16:30</button>
+              <button class="time-slot" type="button">18:00</button>
+              <button class="time-slot" type="button">19:30</button>
+            </div>
+
+            <p class="time-note">
+              В пятницу работаем с 9:00 до 21:00.
+              Все слоты учитывают длительность услуг.
+            </p>
+          </div>
+        </section>
+
+        <!-- Итог записи -->
+        <section class="booking-summary" aria-label="Итог записи">
+          <div class="summary-info">
+            <h2 class="summary-title">9 октября 2026 · 15:00–16:30</h2>
+            <p class="summary-service">
+              Мужская стрижка + Королевское бритьё
+            </p>
+            <p class="summary-details">
+              Дмитрий · 2 услуги · 90 мин · от 2 900 ₽
+            </p>
+          </div>
+
+          <a class="next-button" href="#">
+            Далее: контакты
+            <span class="next-arrow">→</span>
+          </a>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+      <div class="footer-container">
+
+        <div class="footer-columns">
+          <div class="footer-brand">
+            <h2 class="footer-logo">NORTH</h2>
+            <p class="footer-description">
+              Стрижки, бритьё и уход<br>
+              без лишней суеты.
+            </p>
+          </div>
+
+          <div class="footer-contacts">
+            <h3 class="footer-heading">КОНТАКТЫ</h3>
+            <p class="footer-text">
+              ул. Свободы, 18, Ярославль
+            </p>
+            <p class="footer-text">
+              +7 (4852) 60-45-20
+            </p>
+          </div>
+
+          <div class="footer-hours">
+            <h3 class="footer-heading">РЕЖИМ РАБОТЫ</h3>
+            <p class="footer-text">Пн–Пт: 9:00–21:00</p>
+            <p class="footer-text">Сб–Вс: 10:00–18:00</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">
+            © 2026 NORTH. Все права защищены.
+          </p>
+          <a class="privacy-link" href="#">
+            Политика конфиденциальности
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+</body>
 </html>
