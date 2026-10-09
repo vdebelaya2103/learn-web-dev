@@ -1,5 +1,5 @@
-/* Стили страницы.
-   Скопируйте с предудущей практики. */
+
+/* Общие стили */
 
 * {
   margin: 0;
@@ -7,7 +7,586 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background: #f7f3ef;
+  --white: #ffffff;
+  --text: #262321;
+  --muted: #8b8580;
+  --accent: #cd704b;
+  --accent-hover: #b95c39;
+  --border: #e7ddd4;
+  --soft: #f5f1ed;
+  --footer: #1e1e1e;
+}
+
 body {
   min-height: 100vh;
-  font-family: sans-serif;
+  background: #e7e7e7;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page {
+  max-width: 1024px;
+  margin: 56px auto 28px;
+  background: var(--background);
+}
+
+/* Шапка */
+
+.header {
+  background: var(--white);
+}
+
+.header-top {
+  height: 79px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0ebe6;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-link {
+  font-size: 12px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* Этапы записи */
+
+.steps {
+  min-height: 80px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.step-label {
+  font-size: 12px;
+}
+
+.step-done {
+  color: var(--accent);
+}
+
+.step-done .step-number {
+  background: #faeee7;
+}
+
+.step-current {
+  color: var(--accent);
+}
+
+.step-current .step-number {
+  color: var(--white);
+  background: var(--accent);
+  font-weight: 700;
+}
+
+.step-line {
+  height: 1px;
+  background: var(--border);
+  flex: 1;
+  min-width: 12px;
+}
+
+/* Основная область */
+
+.main {
+  padding: 40px 48px 70px;
+}
+
+.container {
+  width: 100%;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.back-link {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.heading-content {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.page-description {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.step-indicator {
+  color: var(--accent);
+  font-size: 12px;
+  align-self: flex-start;
+  padding-top: 15px;
+}
+
+/* Две колонки */
+
+.booking-section {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+}
+
+.calendar-card,
+.time-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.calendar-card {
+  flex: 1.35;
+  min-width: 0;
+}
+
+.time-card {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Календарь */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.calendar-title,
+.time-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.calendar-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-arrow {
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.calendar-arrow:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  justify-items: center;
+}
+
+.calendar-weekdays {
+  margin-bottom: 15px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.calendar-days {
+  row-gap: 12px;
+}
+
+.calendar-day {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--soft);
+  color: var(--text);
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s;
+}
+
+button.calendar-day:hover {
+  background: #f0d6c9;
+  color: var(--accent-hover);
+}
+
+.calendar-day.day-muted {
+  background: transparent;
+  color: #c5bdb7;
+}
+
+.calendar-day.day-selected,
+button.calendar-day.day-selected:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--soft);
+}
+
+/* Слоты времени */
+
+.time-header {
+  margin-bottom: 18px;
+}
+
+.time-title {
+  margin-bottom: 6px;
+}
+
+.time-description {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.time-slot {
+  min-height: 52px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.time-slot:not(:disabled):hover {
+  background: #faeee7;
+  border-color: var(--accent);
+}
+
+.slot-busy {
+  background: var(--soft);
+  color: #aaa29c;
+  cursor: not-allowed;
+}
+
+.slot-status {
+  font-size: 10px;
+  color: #aaa29c;
+}
+
+.time-slot.slot-selected,
+.time-slot.slot-selected:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.time-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Итог записи */
+
+.booking-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.summary-title {
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+
+.summary-service,
+.summary-details {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.next-button {
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 16px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.next-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.next-arrow {
+  font-size: 18px;
+}
+
+/* Подвал */
+
+.footer {
+  background: var(--footer);
+  color: var(--white);
+  padding: 60px 48px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+  padding-bottom: 38px;
+  border-bottom: 1px solid #393939;
+}
+
+.footer-logo {
+  font-size: 23px;
+  margin-bottom: 22px;
+}
+
+.footer-heading {
+  font-size: 11px;
+  margin-bottom: 22px;
+}
+
+.footer-description,
+.footer-text {
+  font-size: 12px;
+  color: #b8b3af;
+  line-height: 1.8;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.copyright,
+.privacy-link {
+  font-size: 11px;
+  color: #77716d;
+}
+
+.privacy-link:hover {
+  color: var(--white);
+}
+
+/* Адаптация под небольшие экраны */
+
+@media (max-width: 760px) {
+  .page {
+    margin: 0;
+  }
+
+  .header-top {
+    height: auto;
+    min-height: 75px;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .steps {
+    padding: 20px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .step-line {
+    min-width: 20px;
+  }
+
+  .main {
+    padding: 30px 20px 50px;
+  }
+
+  .page-heading {
+    flex-wrap: wrap;
+  }
+
+  .heading-content {
+    flex-basis: 75%;
+  }
+
+  .page-title {
+    font-size: 25px;
+  }
+
+  .booking-section {
+    flex-direction: column;
+  }
+
+  .calendar-card,
+  .time-card {
+    padding: 18px;
+  }
+
+  .calendar-day {
+    width: 36px;
+    height: 36px;
+  }
+
+  .booking-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+
+/* Дополнительные состояния календаря */
+
+.calendar-day.day-muted {
+  cursor: default;
+}
+
+.calendar-day.day-selected {
+  font-weight: 700;
+}
+
+.calendar-day:focus-visible,
+.calendar-arrow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Недоступная кнопка продолжения */
+
+.next-button.next-disabled {
+  background: #c9bdb5;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+  transform: none;
 }
