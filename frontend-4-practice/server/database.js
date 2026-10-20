@@ -21,7 +21,11 @@ export const database = {
     // Формат: { day, month, year }. Месяц — 0-индексный (9 = октябрь).
     // Меняйте на свой — например, поставьте реальную дату
     // через new Date() или любую удобную для проверки.
-    today: { day: 17, month: 9, year: 2026 },
+    today: {
+      day: new Date().getDate(),
+      month: new Date().getMonth(),
+      year: new Date().getFullYear(),
+    },
   
     // Слоты для чётных дней (2, 4, 6, ...).
     // Каждый слот: { time: "10:00", available: true }.
